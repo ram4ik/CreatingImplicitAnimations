@@ -18,7 +18,7 @@ struct ContentView: View {
         .foregroundColor(Color.white)
         .clipShape(Circle())
         .scaleEffect(animationAmount)
-        .animation(.interpolatingSpring(stiffness: 50, damping: 1))
+            .animation(.easeInOut(duration: 2))
     }
 }
 
