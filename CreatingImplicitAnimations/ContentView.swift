@@ -17,10 +17,20 @@ struct ContentView: View {
         .background(Color.red)
         .foregroundColor(Color.white)
         .clipShape(Circle())
-        .scaleEffect(animationAmount)
-            .animation(
-                Animation.easeInOut(duration: 2)
-                .delay(1))
+        .overlay(
+            Circle()
+                .stroke(Color.red)
+                .scaleEffect(animationAmount)
+                .opacity(Double(2 - animationAmount))
+                .animation(
+                    Animation.easeInOut(duration: 1)
+                        .repeatForever(autoreverses: false)
+            )
+        )
+            .onAppear{
+                self.animationAmount = 2
+        }
+        
     }
 }
 
